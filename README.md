@@ -137,7 +137,7 @@ CarbonCN is built on IBM's Carbon Design System. For design resources:
 
 ### Figma Design Kit
 
-Access the official IBM Carbon Design System Figma file with all components, colors, and typography:
+Access the IBM Carbon Design System Figma file with all components, colors, and typography:
 
 **[📐 IBM Carbon Design System - Figma Community](https://www.figma.com/community/file/874592104192380079/ibm-carbon-design-system)**
 

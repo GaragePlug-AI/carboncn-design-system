@@ -1,11 +1,11 @@
 import { useState, useRef, useMemo } from "react"
-import { 
-  ChevronDown, Settings, Plus, 
-  Search as SearchIcon, Bell, 
+import {
+  ChevronDown, Settings, Plus,
+  Search as SearchIcon, Bell,
   Bold, Italic, Underline, AlignLeft, AlignCenter, AlignRight,
   Copy, Trash2, Edit, Share2, Home, BarChart2, FileText, Users, HelpCircle,
   // Category icons
-  Zap, FormInput, Compass, BarChart3, MessageSquare, 
+  Zap, FormInput, Compass, BarChart3, MessageSquare,
   Layers, LayoutGrid, Type, Palette, LucideIcon
 } from "lucide-react"
 
@@ -13,14 +13,14 @@ import {
 // Carbon Design System icon - stylized "C" mark
 function CarbonIcon({ className = "" }: { className?: string }) {
   return (
-    <svg 
-      viewBox="0 0 16 16" 
+    <svg
+      viewBox="0 0 16 16"
       className={`w-4 h-4 ${className}`}
       fill="currentColor"
       aria-label="Carbon Design System"
     >
-      <path d="M8 1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm0 12c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/>
-      <path d="M8 5C6.3 5 5 6.3 5 8h2c0-.6.4-1 1-1s1 .4 1 1-.4 1-1 1H7v2h1c1.7 0 3-1.3 3-3s-1.3-3-3-3z"/>
+      <path d="M8 1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm0 12c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z" />
+      <path d="M8 5C6.3 5 5 6.3 5 8h2c0-.6.4-1 1-1s1 .4 1 1-.4 1-1 1H7v2h1c1.7 0 3-1.3 3-3s-1.3-3-3-3z" />
     </svg>
   )
 }
@@ -28,13 +28,13 @@ function CarbonIcon({ className = "" }: { className?: string }) {
 // shadcn/ui icon - stylized "S" mark
 function ShadcnIcon({ className = "" }: { className?: string }) {
   return (
-    <svg 
-      viewBox="0 0 16 16" 
+    <svg
+      viewBox="0 0 16 16"
       className={`w-4 h-4 ${className}`}
       fill="currentColor"
       aria-label="shadcn/ui"
     >
-      <path d="M8 1L1 5v6l7 4 7-4V5L8 1zm0 2.2l4.5 2.6L8 8.4 3.5 5.8 8 3.2zM3 6.9l4 2.3v4.5l-4-2.3V6.9zm6 6.8V9.2l4-2.3v4.5l-4 2.3z"/>
+      <path d="M8 1L1 5v6l7 4 7-4V5L8 1zm0 2.2l4.5 2.6L8 8.4 3.5 5.8 8 3.2zM3 6.9l4 2.3v4.5l-4-2.3V6.9zm6 6.8V9.2l4-2.3v4.5l-4 2.3z" />
     </svg>
   )
 }
@@ -42,8 +42,8 @@ function ShadcnIcon({ className = "" }: { className?: string }) {
 // CarbonCN icon - "CC" mark
 function CarbonCNIcon({ className = "" }: { className?: string }) {
   return (
-    <svg 
-      viewBox="0 0 20 16" 
+    <svg
+      viewBox="0 0 20 16"
       className={`w-5 h-4 ${className}`}
       fill="currentColor"
       aria-label="CarbonCN Original"
@@ -295,7 +295,7 @@ function Section({ id, title, children }: { id: string; title: string; children:
 function ComponentGroup({ id, title, origin, children }: { id?: string; title: string; origin?: ComponentOrigin; children: React.ReactNode }) {
   const config = origin ? originConfig[origin] : null
   const OriginIcon = config?.icon
-  
+
   return (
     <div id={id} className="mb-carbon-07 scroll-mt-40">
       <h3 className="flex items-center gap-carbon-02 text-sm font-semibold text-carbon-gray-70 dark:text-carbon-gray-30 mb-carbon-04 uppercase tracking-wider">
@@ -330,7 +330,7 @@ export function ShowcasePage() {
   const [togglePressed, setTogglePressed] = useState(false)
   const [textAlignment, setTextAlignment] = useState("left")
   const [collapsibleOpen, setCollapsibleOpen] = useState(false)
-  
+
   const { addToast } = useToast()
   const mainRef = useRef<HTMLElement>(null)
 
@@ -339,10 +339,12 @@ export function ShowcasePage() {
       id: "1",
       label: "Documents",
       children: [
-        { id: "1-1", label: "Reports", children: [
-          { id: "1-1-1", label: "Q1 Report.pdf" },
-          { id: "1-1-2", label: "Q2 Report.pdf" },
-        ]},
+        {
+          id: "1-1", label: "Reports", children: [
+            { id: "1-1-1", label: "Q1 Report.pdf" },
+            { id: "1-1-2", label: "Q2 Report.pdf" },
+          ]
+        },
         { id: "1-2", label: "Presentations" },
       ],
     },
@@ -360,7 +362,7 @@ export function ShowcasePage() {
   const filteredComponents = useMemo(() => {
     if (!searchQuery) return []
     const query = searchQuery.toLowerCase()
-    return COMPONENTS.filter(comp => 
+    return COMPONENTS.filter(comp =>
       comp.name.toLowerCase().includes(query) ||
       comp.section.includes(query) ||
       comp.keywords?.some(kw => kw.toLowerCase().includes(query))
@@ -424,7 +426,7 @@ export function ShowcasePage() {
               </div>
             )}
           </div>
-          
+
           {/* Category Pills - Always visible */}
           <div className="flex flex-wrap gap-carbon-02">
             {CATEGORIES.map((category) => {
@@ -452,7 +454,7 @@ export function ShowcasePage() {
           <p className="text-xl text-muted-foreground max-w-3xl mb-carbon-06">
             All CarbonCN components organized by category. Click a category above or scroll to explore.
           </p>
-          
+
           {/* Origin Legend */}
           <div className="flex flex-wrap gap-carbon-06 p-carbon-04 bg-carbon-gray-10 dark:bg-carbon-gray-90 border border-carbon-gray-20 dark:border-carbon-gray-70">
             <div className="flex items-center gap-carbon-02">
@@ -953,7 +955,7 @@ export function ShowcasePage() {
           <ComponentGroup id="comp-ui-shell-header" title="UI Shell Header" origin="carbon">
             <div className="border border-border overflow-hidden rounded-sm">
               <header className="relative h-12 bg-carbon-gray-100 text-white flex items-center">
-                <HeaderMenuButton onClick={() => {}} />
+                <HeaderMenuButton onClick={() => { }} />
                 <HeaderName href="javascript:void(0)" prefix="">CarbonCN</HeaderName>
                 <HeaderNavigation>
                   <HeaderMenuItem><a href="javascript:void(0)">Components</a></HeaderMenuItem>
@@ -1104,7 +1106,7 @@ export function ShowcasePage() {
               <Tag variant="purple">Purple</Tag>
               <Tag variant="teal">Teal</Tag>
               <Tag variant="yellow">Yellow</Tag>
-              <Tag variant="blue" dismissible onDismiss={() => {}}>Dismissible</Tag>
+              <Tag variant="blue" dismissible onDismiss={() => { }}>Dismissible</Tag>
             </div>
           </ComponentGroup>
 
@@ -1172,7 +1174,7 @@ export function ShowcasePage() {
           </div>
 
           {/* ============ ENTERPRISE CHARTS SUITE ============ */}
-          
+
           {/* Bar Charts */}
           <ComponentGroup id="comp-bar-chart" title="Bar Charts" origin="carboncn">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-carbon-06">
@@ -1197,7 +1199,7 @@ export function ShowcasePage() {
                   />
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base font-medium">Quarterly Sales</CardTitle>
@@ -1218,7 +1220,7 @@ export function ShowcasePage() {
                   />
                 </CardContent>
               </Card>
-              
+
               <Card className="lg:col-span-2">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base font-medium">Team Performance</CardTitle>
@@ -1268,7 +1270,7 @@ export function ShowcasePage() {
                   />
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base font-medium">Build Times</CardTitle>
@@ -1320,7 +1322,7 @@ export function ShowcasePage() {
                   />
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base font-medium">Revenue Streams</CardTitle>
@@ -1366,7 +1368,7 @@ export function ShowcasePage() {
                   />
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base font-medium">Budget Allocation</CardTitle>
@@ -1409,7 +1411,7 @@ export function ShowcasePage() {
                   />
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base font-medium">Memory</CardTitle>
@@ -1423,7 +1425,7 @@ export function ShowcasePage() {
                   />
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base font-medium">Disk Space</CardTitle>
@@ -1454,33 +1456,33 @@ export function ShowcasePage() {
                       <p className="text-sm text-muted-foreground">Revenue</p>
                       <p className="text-2xl font-semibold">$48.2K</p>
                     </div>
-                    <Sparkline 
-                      data={[30, 40, 35, 50, 49, 60, 70, 91, 125]} 
-                      showTrend 
+                    <Sparkline
+                      data={[30, 40, 35, 50, 49, 60, 70, 91, 125]}
+                      showTrend
                       color={chartColors.green}
                     />
                   </div>
-                  
+
                   <div className="flex items-center justify-between p-4 border rounded">
                     <div>
                       <p className="text-sm text-muted-foreground">Users</p>
                       <p className="text-2xl font-semibold">2,847</p>
                     </div>
-                    <AreaSparkline 
-                      data={[120, 140, 135, 180, 149, 160, 170, 191, 175]} 
-                      showTrend 
+                    <AreaSparkline
+                      data={[120, 140, 135, 180, 149, 160, 170, 191, 175]}
+                      showTrend
                       color={chartColors.blue}
                     />
                   </div>
-                  
+
                   <div className="flex items-center justify-between p-4 border rounded">
                     <div>
                       <p className="text-sm text-muted-foreground">Orders</p>
                       <p className="text-2xl font-semibold">384</p>
                     </div>
-                    <BarSparkline 
-                      data={[8, 12, 10, 14, 11, 15, 13, 16, 18]} 
-                      showTrend 
+                    <BarSparkline
+                      data={[8, 12, 10, 14, 11, 15, 13, 16, 18]}
+                      showTrend
                       color={chartColors.purple}
                     />
                   </div>
@@ -1733,8 +1735,8 @@ function App() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="left-2 md:-left-12" />
+              <CarouselNext className="right-2 md:-right-12" />
             </Carousel>
           </ComponentGroup>
         </Section>
@@ -1755,7 +1757,7 @@ function App() {
               <Notification variant="info" title="Information">Informational notification.</Notification>
               <Notification variant="success" title="Success">Your changes have been saved.</Notification>
               <Notification variant="warning" title="Warning">Please review your settings.</Notification>
-              <Notification variant="error" title="Error" dismissible onDismiss={() => {}}>An error occurred.</Notification>
+              <Notification variant="error" title="Error" dismissible onDismiss={() => { }}>An error occurred.</Notification>
             </div>
           </ComponentGroup>
 
@@ -2134,7 +2136,7 @@ function App() {
           </ComponentGroup>
 
           <ComponentGroup id="comp-alert-colors" title="Status Colors" origin="carbon">
-            <div className="flex gap-carbon-05">
+            <div className="flex flex-wrap gap-carbon-05">
               <div className="text-center">
                 <div className="h-12 w-24 bg-carbon-green-60" />
                 <p className="caption-01 mt-1">Success</p>

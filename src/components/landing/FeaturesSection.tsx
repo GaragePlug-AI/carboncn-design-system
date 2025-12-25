@@ -11,7 +11,7 @@ import {
 const features = [
   {
     icon: Component,
-    title: "50+ Components",
+    title: "75+ Components",
     description:
       "Comprehensive library covering forms, navigation, data display, feedback, and more.",
   },
